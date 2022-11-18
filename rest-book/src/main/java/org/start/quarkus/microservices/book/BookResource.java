@@ -23,7 +23,7 @@ public class BookResource {
             @FormParam("genre") String genre ){
 
         Book book = new Book();
-        book.isbn13 = "We will get it from the Number Microservice";
+        book.isbn13 = "13-We will get it from the Number Microservice";
         book.title = title;
         book.author = author;
         book.yearOfPublicaton = yearOfPublication;
