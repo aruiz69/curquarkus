@@ -19,7 +19,7 @@ public class BookResource {
     public Response createABook(
             @FormParam("title") String title,
             @FormParam("author") String author,
-            @FormParam("yearOfPublication") int yearOfPublication,
+            @FormParam("year") int yearOfPublication,
             @FormParam("genre") String genre ){
 
         Book book = new Book();
