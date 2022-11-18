@@ -1,5 +1,6 @@
 package org.start.quarkus.microservices.book;
 
+import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.jboss.logging.Logger;
 import org.jboss.logging.annotations.Param;
 
@@ -11,6 +12,8 @@ import java.time.Instant;
 
 @Path("/api/books")
 public class BookResource {
+    @RestClient
+    BookNumberProxy bookNumberProxy;
     @Inject
     Logger logger;
     @POST
@@ -23,7 +26,7 @@ public class BookResource {
             @FormParam("genre") String genre ){
 
         Book book = new Book();
-        book.isbn13 = "13-We will get it from the Number Microservice";
+        book.isbn13 = bookNumberProxy.generateIsbNumbers().isbn13;
         book.title = title;
         book.author = author;
         book.yearOfPublicaton = yearOfPublication;
