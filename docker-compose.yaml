@@ -1,0 +1,12 @@
+version: "3"
+services:
+  rest-isbn-number:
+    image: "aruiz69/rest-isbn-number:1.0.0-SNAPSHOT"
+    ports:
+      - "8701:8701"
+  rest-book:
+    image: "aruiz69/rest-book:1.0.0-SNAPSHOT"
+    ports:
+      - "8702:8702"
+    environment:
+      - ISBNPROXY_MP_REST_URI=http://rest-isbn-number:8701
